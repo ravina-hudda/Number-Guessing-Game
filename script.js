@@ -28,25 +28,24 @@ function validateGuess(guess){
     }
 }
 function checkGuess(guess){
+    remainingGuesses.innerHTML-=1;
     if(guess=== randomNumber){
-        lowOrHi.innerHTML=`you guess it right, Number is ${guess}`
+        lowOrHi.innerHTML=`yeahhh!!! you guess it right, Number is ${guess}`
         endGame();
     }
-    else{
-        
-        if(remainingGuesses.innerHTML-1<0){
+
+    else{        
+        if(remainingGuesses.innerHTML==0){
             lowOrHi.innerHTML=`Better Luck next time, Number was ${randomNumber}`
             endGame();
         }
-        else if(remainingGuesses.innerHTML-1==0){
-            previousGuesse.innerHTML+=`${guess}, `;
-            remainingGuesses.innerHTML-=1;
-            endGame();
-        }
+        
         else {
+
             previousGuesse.innerHTML+=`${guess}, `;
-            remainingGuesses.innerHTML-=1;
-            lowOrHi.innerHTML="No, try again"
+            if(guess>randomNumber) lowOrHi.innerHTML="No, your guess is too high"
+            else if(guess<randomNumber) lowOrHi.innerHTML="No, your guess is too low"
+            
         }
         
     }
@@ -72,7 +71,7 @@ function newGame(){
   previousGuesse.innerHTML='';
   usserInput.removeAttribute('disabled');
     startOver.removeChild(p);
-
+    lowOrHi.innerHTML=""
     playGame = true;
 
 })
