@@ -77,10 +77,14 @@
   }
   
   h1 {
-    
-  
+    font-size: 3rem;
     color:black;
     text-align: center;
+    /* background-color: rgb(219, 46, 219); */
+    margin-left: 2em;
+    margin-right: 2em;
+    /* border: 2px solid purple; */
+    /* border-radius: 5px */
   }
   
   p {
